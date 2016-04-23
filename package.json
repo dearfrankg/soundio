@@ -14,7 +14,11 @@
   "license": "MIT",
   "standard": {
     "parser": "babel-eslint",
-    "globals": []
+    "globals": [
+      "history",
+      "localStorage",
+      "fetch"
+    ]
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -35,6 +39,7 @@
     "html-webpack-plugin": "^2.8.1",
     "html-webpack-template": "^4.0.0",
     "mocha": "^2.4.5",
+    "mock-local-storage": "^1.0.2",
     "node-sass": "^3.3.3",
     "npm-install-webpack-plugin": "^2.0.2",
     "sass-loader": "^3.2.0",
@@ -45,7 +50,10 @@
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.13.0",
+    "nock": "^8.0.0",
+    "normalizr": "^2.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.5",
@@ -53,6 +61,7 @@
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
+    "redux-mock-store": "^1.0.2",
     "redux-thunk": "^2.0.1"
   }
 }
