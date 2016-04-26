@@ -1,24 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import * as counterActions from '../actions/counter'
+import Header from '../components/Header'
 
-@connect((state) => ({
-  counter: state.counter
-}), {
-  ...counterActions
-})
-export default class App extends React.Component {
+export class App extends React.Component {
 
   render () {
     const {counter, increment, decrement} = this.props
     return (
       <div>
-        <h1>Redux Starter App 2016</h1>
+        <Header>Redux Starter App 2016</Header>
         <button onClick={decrement}>-</button>
         <button onClick={increment}>+</button>
         <div>{counter}</div>
         {this.Blocks(counter)}
-
       </div>
     )
   }
@@ -47,3 +42,9 @@ export default class App extends React.Component {
   }
 
 }
+
+export default connect((state) => ({
+  counter: state.counter
+}), {
+  ...counterActions
+})(App)
