@@ -40,7 +40,7 @@ const common = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.ejs',
+      template: path.join(PATHS.app, 'index.ejs'),
       title: pkg.description,
       appMountId: 'app',
       inject: false
