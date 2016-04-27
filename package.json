@@ -1,12 +1,12 @@
 {
-  "name": "react_starter_2016",
+  "name": "sound_io",
   "version": "0.0.0",
-  "description": "React Starter App 2016",
+  "description": "SoundIO",
   "main": "index.js",
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
     "build": "webpack",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --progress --colors --hot --content-base ./server/public --config ./webpack.config.js",
     "test": "npm run test-once -- --watch",
     "test-once": "clear; mocha --compilers js:babel-core/register --recursive -r mock-local-storage"
   },
@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "js-cookie": "^2.1.1",
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
     "nock": "^8.0.0",
@@ -64,6 +65,7 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
     "redux-mock-store": "^1.0.2",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "soundcloud": "^3.1.0"
   }
 }
