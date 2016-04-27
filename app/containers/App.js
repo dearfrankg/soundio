@@ -1,50 +1,100 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import * as counterActions from '../actions/counter'
-import Header from '../components/Header'
 
-export class App extends React.Component {
+import { initAuth } from '../actions/authed'
+import { initEnvironment } from '../actions/environment'
+import { initNavigator } from '../actions/navigator'
+
+import {
+  MeContainer,
+  ModalContainer,
+  NavContainer,
+  PlayerContainer,
+  SongContainer,
+  SongsContainer,
+  UserContainer
+} from './index'
+
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  isMobile: PropTypes.bool,
+  path: PropTypes.array.isRequired
+}
+
+class App extends Component {
+
+  componentDidMount () {
+    const { dispatch } = this.props
+    dispatch(initEnvironment(window))
+    dispatch(initAuth())
+    dispatch(initNavigator(window))
+  }
+
+  renderContent () {
+    const { path } = this.props
+    switch (path[0]) {
+      case 'songs':
+        switch (path.length) {
+          case 1:
+            return <SongsContainer />
+          case 2:
+            return <SongContainer />
+          default:
+            return null
+        }
+      case 'users':
+        return <UserContainer />
+      case 'me':
+        return <MeContainer />
+      default:
+        return null
+    }
+  }
 
   render () {
-    const {counter, increment, decrement} = this.props
+    const { width, height, isMobile } = this.props
+
+    if (isMobile) {
+      return this.renderMobile(width, height)
+    }
+
     return (
       <div>
-        <Header>Redux Starter App 2016</Header>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
-        <div>{counter}</div>
-        {this.Blocks(counter)}
+        <NavContainer />
+        {this.renderContent()}
+        <PlayerContainer />
+        <ModalContainer />
       </div>
     )
   }
 
-  Blocks (blocks) {
-    if (blocks < 1) {
-      return null
-    }
-    let results = []
-    while (blocks--) {
-      results.push(
-        <div
-          key={blocks}
-          className='block'
-          style={{
-            display: 'inline-block',
-            width: '20px',
-            height: '20px',
-            background: 'palegreen',
-            margin: '5px',
-            border: '1px solid #ccc'
-          }}>
-        </div>)
-    }
-    return results
+  renderMobile (width, height) {
+    return (
+      <div className='mobile' style={{ width: `${width}px`, height: `${height}px` }}>
+        <PlayerContainer />
+        {this.renderContent()}
+        <NavContainer />
+      </div>
+    )
   }
 
 }
 
-export default connect((state) => ({
-  counter: state.counter
-}), {
-  ...counterActions
-})(App)
+App.propTypes = propTypes
+
+function mapStateToProps (state) {
+  const { environment, navigator } = state
+  const { width, height, isMobile } = environment
+  const { path } = navigator.route
+
+  return {
+    width,
+    height,
+    isMobile,
+    path
+  }
+}
+
+export default connect(mapStateToProps)(App)
