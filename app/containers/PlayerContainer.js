@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { getPlayingSongId } from '../utils/PlayerUtils'
 import {
   Player
 } from '../components'
-import { getPlayingSongId } from '../utils/PlayerUtils'
 
 const propTypes = {
   isMobile: PropTypes.bool,

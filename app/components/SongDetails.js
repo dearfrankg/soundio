@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { formatSongTitle } from '../utils/FormatUtils'
-import Link from '.'
+import {Link} from '.'
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,

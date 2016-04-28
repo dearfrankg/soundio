@@ -199,7 +199,7 @@ class Nav extends Component {
                 dispatch={dispatch}
                 route={{ path: ['songs'] }}
               >
-                SoundRedux
+                SoundIO
               </Link>
             </div>
             {this.renderStreamLink()}
