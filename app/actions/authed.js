@@ -156,10 +156,12 @@ function initInterval (accessToken) {
 }
 
 export function loginUser (shouldShowStream = true) {
+  const redirectURI = `${window.location.protocol}//${window.location.host}/api/callback.html`
+
   return (dispatch) => {
     SC.initialize({
       client_id: CLIENT_ID,
-      redirect_uri: `${window.location.protocol}//${window.location.host}/api/callback`
+      redirect_uri: redirectURI
     })
 
     SC.connect().then((authObj) => {
