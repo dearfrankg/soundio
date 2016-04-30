@@ -86,6 +86,7 @@ if (TARGET === 'build' || TARGET === 'stats') {
   module.exports = merge(common, {
     entry: {
       vendor: Object.keys(pkg.dependencies).filter(function (v) {
+        console.log('vendor: ', v)
         return v !== 'alt-utils'
       }),
       style: PATHS.style
