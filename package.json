@@ -33,6 +33,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
     "clean-webpack-plugin": "^0.1.8",
+    "copy-webpack-plugin": "^2.1.3",
     "css-loader": "^0.23.1",
     "expect": "^1.12.2",
     "extract-text-webpack-plugin": "^1.0.1",
