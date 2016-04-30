@@ -1,7 +1,0 @@
-/*
-
-Cannot test authed actions
-
-I cannot get the  soundcloud module to work in the test environment.
-
-*/

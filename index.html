@@ -5,13 +5,16 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <title><%= htmlWebpackPlugin.options.title || 'Webpack App'%></title>
+    <title>SoundIO</title>
 </head>
 <body>
     <div id="app"></div>
 
-    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-      <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %>
+    
+      <script src="manifest.c75689862e5d042fb0de.js"></script>
+      <script src="style.ac29f4ea8a80afeeda39.js"></script>
+      <script src="vendor.98dc57d6c8ed1260f206.js"></script>
+      <script src="app.fb2c00f5bb1c0abc6c00.js"></script>
 
 </body>
 </html>
