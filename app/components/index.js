@@ -12,6 +12,14 @@ import SongCard from './SongCard'
 import infiniteScrollify from './InfiniteScrollify'
 import Spinner from './Spinner'
 import Songs from './Songs'
+import Song from './Song'
+import Comments from './Comments'
+import Comment from './Comment'
+import SidebarContent from './SidebarContent'
+import Switch from './Switch'
+import SongListItem from './SongListItem'
+import SongHeartCount from './SongHeartCount'
+import Waveform from './Waveform'
 
 export {
   Link,
@@ -27,5 +35,13 @@ export {
   SongCard,
   infiniteScrollify,
   Spinner,
-  Songs
+  Songs,
+  Song,
+  Comments,
+  Comment,
+  SidebarContent,
+  Switch,
+  SongListItem,
+  SongHeartCount,
+  Waveform
 }
