@@ -8,7 +8,19 @@
     "build": "NODE_ENV=production webpack -p --config ./webpack.config.js",
     "start": "webpack-dev-server --progress --colors --hot --content-base ./assets --config ./webpack.config.js",
     "test": "npm run test-once -- --watch",
-    "test-once": "clear; mocha --compilers js:babel-core/register --recursive -r mock-local-storage"
+    "test-once": "clear; mocha --compilers js:babel-core/register --recursive -r mock-local-storage",
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf app assets test .babelrc LICENSE package.json webpack.config.js"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "build",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean-source"
+    ],
+    "noprompt": true
   },
   "author": "Frank Gutierrez",
   "license": "MIT",
@@ -37,6 +49,7 @@
     "css-loader": "^0.23.1",
     "expect": "^1.12.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages-deploy": "^0.4.2",
     "html-webpack-plugin": "^2.8.1",
     "html-webpack-template": "^4.0.0",
     "mocha": "^2.4.5",
@@ -49,6 +62,7 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
     "redux-mock-store": "^1.0.2",
+    "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
     "standard": "^6.0.8",
     "style-loader": "^0.13.0",
