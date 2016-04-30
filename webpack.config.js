@@ -5,12 +5,14 @@ const NpmInstallPlugin = require('npm-install-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const pkg = require('./package.json')
 
 const TARGET = process.env.npm_lifecycle_event
 const PATHS = {
   app: path.join(__dirname, 'app'),
+  fonts: path.join(__dirname, 'app/styles/fonts'),
   build: path.join(__dirname, 'build'),
   style: path.join(__dirname, 'app/styles/main.scss'),
   test: path.join(__dirname, 'tests')
@@ -118,7 +120,12 @@ if (TARGET === 'build' || TARGET === 'stats') {
         compress: {
           warnings: false
         }
-      })
+      }),
+      new CopyWebpackPlugin([
+          { from: 'server/public/fonts', to: 'fonts' },
+          { from: 'server/public/api', to: 'api' },
+          { from: 'server/public/favicon.ico' }
+      ])
     ]
   })
 }
