@@ -7,7 +7,6 @@ import { initNavigator } from '../actions/navigator'
 
 import {
   MeContainer,
-  ModalContainer,
   NavContainer,
   PlayerContainer,
   SongContainer,
@@ -65,7 +64,6 @@ class App extends Component {
         <NavContainer />
         {this.renderContent()}
         <PlayerContainer />
-        <ModalContainer />
       </div>
     )
   }
