@@ -122,9 +122,9 @@ if (TARGET === 'build' || TARGET === 'stats') {
         }
       }),
       new CopyWebpackPlugin([
-          { from: 'server/public/fonts', to: 'fonts' },
-          { from: 'server/public/api', to: 'api' },
-          { from: 'server/public/favicon.ico' }
+          { from: 'assets/fonts', to: 'fonts' },
+          { from: 'assets/api', to: 'api' },
+          { from: 'assets/favicon.ico' }
       ])
     ]
   })
