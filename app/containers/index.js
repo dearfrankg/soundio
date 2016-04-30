@@ -3,7 +3,6 @@ import DevTools from './DevTools'
 import Root from './Root'
 import NavContainer from './NavContainer'
 import MeContainer from './MeContainer'
-import ModalContainer from './ModalContainer'
 import PlayerContainer from './PlayerContainer'
 import SongContainer from './SongContainer'
 import SongsContainer from './SongsContainer'
@@ -13,7 +12,6 @@ export {
   App,
   DevTools,
   MeContainer,
-  ModalContainer,
   NavContainer,
   PlayerContainer,
   Root,
