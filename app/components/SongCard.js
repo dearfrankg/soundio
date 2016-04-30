@@ -79,16 +79,3 @@ class SongCard extends Component {
 SongCard.propTypes = propTypes
 
 export default SongCard
-
-/*
-# Goes under last Link
-
-<SongHeart
-  authed={authed}
-  className='song-card-heart'
-  dispatch={dispatch}
-  isLiked={isLiked}
-  songId={song.id}
-/>
-
-*/
