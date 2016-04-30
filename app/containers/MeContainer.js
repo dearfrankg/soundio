@@ -1,11 +1,50 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { getPlayingSongId } from '../utils/PlayerUtils'
+import { Me } from '../components'
 
-export default class MeContainer extends React.Component {
+const propTypes = {
+  isMobile: PropTypes.bool
+}
+
+class MeContainer extends Component {
+
   render () {
-    return (
-      <div>
-        MeContainer TBD
-      </div>
-    )
+    const { isMobile } = this.props
+    if (isMobile) {
+      return this.MobileMe()
+    }
+
+    return <Me {...this.props} />
+  }
+
+  MobileMe () {
+    return null
+  }
+
+}
+
+MeContainer.propTypes = propTypes
+
+function mapStateToProps (state) {
+  const { authed, entities, environment, navigator, player, playlists } = state
+  const { height, isMobile } = environment
+  const { songs, users } = entities
+  const { route } = navigator
+  const playingSongId = getPlayingSongId(player, playlists)
+
+  return {
+    authed,
+    authedPlaylists: entities.playlists,
+    height,
+    isMobile,
+    player,
+    playingSongId,
+    playlists,
+    route,
+    songs,
+    users
   }
 }
+
+export default connect(mapStateToProps)(MeContainer)
