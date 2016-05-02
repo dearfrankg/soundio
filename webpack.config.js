@@ -50,7 +50,7 @@ const common = {
   ]
 }
 
-if (TARGET === 'start' || !TARGET) {
+if (TARGET === 'dev' || !TARGET) {
   module.exports = merge(common, {
     entry: {
       style: PATHS.style
